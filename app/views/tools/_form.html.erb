@@ -1,0 +1,24 @@
+<%= form_with(model: tool, local: true) do |form| %>
+  <% if tool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
+
+      <ul>
+      <% tool.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.label :name %>
+    <%= form.text_field :name, disabled: !tool.new_record? %>
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

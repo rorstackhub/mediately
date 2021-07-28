@@ -1,0 +1,10 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
+<h1>New Tool</h1>
+
+<%= render 'form', tool: @tool %>
+
+<%= link_to 'Back', tools_path %>
